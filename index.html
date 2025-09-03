@@ -360,7 +360,7 @@
     @keyframes titleGlow{0%{filter:drop-shadow(0 0 5px rgba(155,89,255,0.3))}100%{filter:drop-shadow(0 0 20px rgba(155,89,255,0.8))}}
     @keyframes cardPulse{0%,100%{box-shadow:var(--shadow-xl),0 0 30px rgba(155,89,255,0.3)}50%{box-shadow:var(--shadow-xl),0 0 40px rgba(155,89,255,0.6)}}
     @keyframes btnGlow{0%{box-shadow:var(--shadow-lg)}100%{box-shadow:var(--shadow-lg),0 0 25px rgba(155,89,255,0.4)}}
-    .hero h1::before{content:'HACKTOBERFEST 2025';position:absolute;top:0;left:0;color:#f7931e;z-index:-1;transform:translate(2px,2px);opacity:0.7}
+    .hero h1::before{content:'HACKTOBER FEST 2025';position:absolute;top:0;left:0;color:#f7931e;z-index:-1;transform:translate(2px,2px);opacity:0.7}
     .hero h1::after{content:'⚙️';position:absolute;top:-10px;right:-40px;font-size:0.6em;animation:titlePumpkin 4s ease-in-out infinite}
     @keyframes titlePumpkin{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.1)}}
     
@@ -654,6 +654,251 @@
       background: linear-gradient(180deg, rgba(10,10,15,0.7) 0%, rgba(26,22,37,0.8) 100%);
       z-index: -1;
     }
+    
+    /* Git Event Detail Section */
+    .git-event-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, rgba(155,89,255,0.05) 0%, rgba(110,231,183,0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .git-event-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(155,89,255,0.1) 0%, transparent 70%);
+      animation: gitBgRotate 20s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes gitBgRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .git-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .git-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(155,89,255,0.5);
+      animation: gitTitleGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes gitTitleGlow {
+      0% { filter: drop-shadow(0 0 10px rgba(155,89,255,0.3)); }
+      100% { filter: drop-shadow(0 0 25px rgba(155,89,255,0.8)); }
+    }
+    
+    .git-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    .git-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .git-card {
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .git-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .git-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(155,89,255,0.3), 0 0 30px rgba(155,89,255,0.2);
+    }
+    
+    .git-card:hover::before {
+      left: 100%;
+    }
+    
+    .git-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .git-icon {
+      font-size: 2.5rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(155,89,255,0.3);
+    }
+    
+    .git-card h3 {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .git-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    .git-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .step {
+      padding: 0.75rem 1rem;
+      background: rgba(155,89,255,0.1);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .step:hover {
+      background: rgba(155,89,255,0.2);
+      transform: translateX(5px);
+    }
+    
+    .git-info-card {
+      background: linear-gradient(135deg, rgba(155,89,255,0.1), rgba(110,231,183,0.1));
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .info-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .info-value {
+      font-size: 1.125rem;
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    
+    .participants-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .participant-type {
+      padding: 0.75rem;
+      background: rgba(110,231,183,0.1);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .participant-type:hover {
+      background: rgba(110,231,183,0.2);
+      transform: scale(1.02);
+    }
+    
+    .git-perks-card {
+      background: linear-gradient(135deg, rgba(110,231,183,0.1), rgba(155,89,255,0.1));
+    }
+    
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    
+    .perk {
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      text-align: center;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .perk:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    @media(max-width: 768px) {
+      .git-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .git-card {
+        padding: 2rem;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .perks-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -710,7 +955,7 @@
           <span class="presents">Presents</span>
           <div class="underline"></div>
         </div>
-        <h1>HACKTOBERFEST 2025</h1>
+        <h1>HACKTOBER FEST 2025</h1>
         <p>Join us for the ultimate open-source celebration! Learn Git & GitHub, contribute to amazing projects, and be part of the global developer community making meaningful contributions this October.</p>
        
     </section>
@@ -750,7 +995,7 @@
       </div>
        <div class="cta-row">
      
-          <button class="btn btn-ghost" onclick="location.href='#git ENENT DETAIL'">Learn More</button>
+          <button class="btn btn-ghost" onclick="location.href='#git'">Learn More</button>
         </div>
     </section>
 
@@ -885,10 +1130,18 @@
       </video>
       <div class="video-overlay"></div>
 
-    <section id="git ENENT DETAIL" style="padding:3rem 1rem">
-      <h2 class="section-title">🚀 Event Details: Git Set Code</h2>
-      <div style="max-width:900px;margin:1rem auto;color:rgba(230,230,238,.85)">
-        <h3>💡 What We Do</h3>
+    <section id="git" class="git-event-section">
+      <div class="section-container">
+        <div class="git-header fade-in">
+          <h2 class="git-title">🚀 Event Details: Git Set Code</h2>
+          <p class="git-subtitle">Your gateway to open source contributions and collaborative coding</p>
+        </div>
+        <div class="git-cards-grid fade-in">
+          <div class="git-card">
+            <div class="git-card-header">
+              <div class="git-icon">💡</div>
+              <h3>What We Do</h3>
+            </div>
         <p>Git Set Code is a beginner-friendly yet impactful event where we demystify Git & GitHub for developers. Think of it as your gateway to open source contributions and collaborative coding. We’ll start from the basics,what Git is, why it’s used, and how it powers almost every software project today and move step by step into practical GitHub workflows. By the end of the session, you’ll not only know the theory but also make your first real contribution.</p>
 
         <h3>⚡ How We Do It</h3>
